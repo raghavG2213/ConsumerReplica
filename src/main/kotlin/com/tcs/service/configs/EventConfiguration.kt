@@ -1,7 +1,6 @@
 package com.tcs.service.configs
 
 import com.tcs.service.service.Consumer
-import com.tcs.service.service.Producer
 import io.eventuate.tram.events.subscriber.DomainEventDispatcher
 import io.eventuate.tram.events.subscriber.DomainEventDispatcherFactory
 import io.eventuate.tram.spring.consumer.kafka.EventuateTramKafkaMessageConsumerConfiguration
@@ -23,6 +22,6 @@ class EventConfiguration {
 
     @Bean
     fun domainEventDispatcher(consumer: Consumer, domainEventDispatcherFactory: DomainEventDispatcherFactory): DomainEventDispatcher? {
-        return domainEventDispatcherFactory.make("PostECMRConsumer", consumer.domainEventHandlers())
+        return domainEventDispatcherFactory.make("DummyConsumer", consumer.domainEventHandlers())
     }
 }
